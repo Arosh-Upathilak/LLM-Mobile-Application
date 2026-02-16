@@ -1,16 +1,18 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { Appearance, useColorScheme } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { LightTheme, DarkTheme} from "@/constants/Colors";
+import { LightTheme, DarkTheme } from "@/constants/Colors";
 
 const ThemeContext = createContext({
   theme: LightTheme,
   toggleTheme: () => {},
 });
 
-export const ThemeProvider = ({ children }:any) => {
+export const ThemeProvider = ({ children }: any) => {
   const systemColorScheme = useColorScheme();
-  const [theme, setTheme] = useState(systemColorScheme === "dark" ? DarkTheme : LightTheme);
+  const [theme, setTheme] = useState(
+    systemColorScheme === "dark" ? DarkTheme : LightTheme,
+  );
 
   useEffect(() => {
     const loadTheme = async () => {

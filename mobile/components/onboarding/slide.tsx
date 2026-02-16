@@ -39,9 +39,6 @@ export default function Slide({
     }
   };
 
-
-
-
   return (
     <>
       <Svg style={StyleSheet.absoluteFill}>

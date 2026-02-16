@@ -21,7 +21,6 @@ interface SliderProps {
   next?: JSX.Element;
 }
 
-
 interface WaveProps {
   side: Side;
   color: string;

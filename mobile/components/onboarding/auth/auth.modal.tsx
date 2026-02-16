@@ -6,17 +6,15 @@ import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { makeRedirectUri, useAuthRequest } from "expo-auth-session";
 
 const AuthModal = () => {
-  const configureGoogleSignIn = () =>{
-    if(Platform.OS === 'ios'){
-       GoogleSignin.configure({
+  const configureGoogleSignIn = () => {
+    if (Platform.OS === "ios") {
+      GoogleSignin.configure({
         iosClientId: process.env.EXPO_PUBLIC_IOS_GOOGLE_API_KEY,
       });
     }
-  }
-
-  const googleSignIn = async () => {
- 
   };
+
+  const googleSignIn = async () => {};
 
   return (
     <BlurView
@@ -49,7 +47,7 @@ const AuthModal = () => {
             fontFamily: "Poppins_300Light",
           }}
         >
-          It's easier than your imagination!
+          It&apos;s easier than your imagination!
         </Text>
         <View
           style={{
@@ -58,9 +56,7 @@ const AuthModal = () => {
             gap: windowWidth(20),
           }}
         >
-          <Pressable 
-            onPress={googleSignIn}
-          >
+          <Pressable onPress={googleSignIn}>
             <Image
               source={require("@/assets/images/onboarding/google.png")}
               style={{

@@ -1,5 +1,5 @@
 import { ThemeProvider } from "@/context/theme.context";
-import { SplashScreen, Stack } from "expo-router";
+import {  Stack } from "expo-router";
 import {
   Poppins_600SemiBold,
   Poppins_300Light,
