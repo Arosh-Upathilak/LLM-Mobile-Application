@@ -45,3 +45,9 @@ mobile/app-example
 mobile/ios/
 mobile/android/
 mobile/app/.env
+
+
+# backend files
+backend/node_modules
+
+backend/.env
