@@ -10,50 +10,32 @@ on:
   workflow_dispatch:
 
 jobs:
-  backend:
-    name: Backend Lint
+  build-and-lint:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20]
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: npm
+          node-version: 20
 
-      - name: Install dependencies
+      # Backend
+      - name: Install backend dependencies
         working-directory: backend
         run: npm ci
 
-      - name: Lint
+      - name: Lint backend
         working-directory: backend
         run: npm run lint -- --max-warnings=0
 
-  mobile:
-    name: Mobile Lint
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [20]
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: npm
-
-      - name: Install dependencies
+      # Frontend
+      - name: Install mobile dependencies
         working-directory: mobile
         run: npm ci
 
-      - name: Lint
+      - name: Lint mobile
         working-directory: mobile
         run: npm run lint -- --max-warnings=0
